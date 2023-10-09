@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_b971bf76204e440da24890fd2367ed96 }}/2324frontend:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./sem3frontend/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
