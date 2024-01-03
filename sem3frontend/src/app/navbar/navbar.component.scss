@@ -1,0 +1,36 @@
+.header {
+  background-color: #36b3b7;
+  min-height: 9vh;
+  width: 100%;
+  display: flex;
+  padding-inline: 10px;
+  align-items: center;
+  color: #EDEEFF;
+}
+
+.logo {
+  margin: 0;
+  color: #EDEEFF;
+  font-family: Proxima;
+  cursor: pointer;
+}
+
+.nav_link {
+  min-height: 80%;
+  min-height: 4vh;
+  display: flex;
+  align-items: center;
+  color: #EDEEFF;
+}
+
+.nav_login{
+  position: absolute;
+  right: 3vw;
+}
+
+.link {
+  color: #EDEEFF;
+  text-decoration: none;
+  margin-left: 20px;
+  font-family: Neutrif;
+}
