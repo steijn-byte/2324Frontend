@@ -1,0 +1,14 @@
+<header class="header">
+    <h1 routerLink="/" class="logo">Fooderz</h1>
+    <div class="nav_link">
+      <a routerLink="/Profile" class="link">Profile</a>
+    </div>
+    <div>
+      <a routerLink="/Chats" class="link"></a>
+    </div>
+    <div class="nav_login">
+      <a routerLink="/login" class="link" *ngIf="this.isLoggedin == false">Inloggen</a>
+      <a routerLink="/" class="link" *ngIf="this.isLoggedin == true" (click)="Logout()">Uitloggen</a>
+    </div>
+  </header>
+  <router-outlet></router-outlet>

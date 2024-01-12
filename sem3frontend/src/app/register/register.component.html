@@ -1,0 +1,31 @@
+<!-- register.component.html -->
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-success text-white">
+            <h4>Register</h4>
+          </div>
+          <div class="card-body">
+            <!-- Your registration form goes here -->
+            <form>
+              <div class="form-group">
+                <label for="newUsername">Username</label>
+                <input type="text" class="form-control" id="newUsername" placeholder="Enter your new username">
+              </div>
+              <div class="form-group">
+                <label for="newPassword">Password</label>
+                <input type="password" class="form-control" id="newPassword" placeholder="Enter your new password">
+              </div>
+              <button type="submit" class="btn btn-success">Register</button>
+            </form>
+          </div>
+          <div class="card-footer">
+            <p class="text-center">Already have an account? <a routerLink="/login">Login here</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
