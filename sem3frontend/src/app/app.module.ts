@@ -8,12 +8,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptorService } from './Authentication/jwt-interceptor.service';
 import { ChatComponent } from './chat/chat.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

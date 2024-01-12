@@ -19,17 +19,17 @@ export class AuthenticationService {
     responseType: 'text' as 'json',
   };
 
-  login(email: string, password: string ) {
+  login(email: string, password: string) {
     return this.http.post<any>(`${this.apiUrl}`, email + password, this.httpOptions)
-      .pipe(map((companyResponse) => {
+      .pipe(map((Response) => {
         // login successful if there's a jwt token in the response
-        if (typeof companyResponse === 'string') {
-          this.setToken(companyResponse);
+        if (typeof Response === 'string') {
+          this.setToken(Response);
         } else {
-          console.error('Unexpected response type:', typeof companyResponse);
+          console.error('Unexpected response type:', typeof Response);
         }
 
-        return companyResponse;
+        return Response;
 
       }),
       );
@@ -39,8 +39,8 @@ export class AuthenticationService {
     return localStorage.getItem(this.tokenKey);
   }
 
-  setToken(companyResponse: string): void {
-    localStorage.setItem(this.tokenKey, companyResponse);
+  setToken(Response: string): void {
+    localStorage.setItem(this.tokenKey, Response);
   }
 
   deleteToken() {
