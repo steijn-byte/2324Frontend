@@ -20,7 +20,7 @@ httpOptions ={
     const username = user.Username;
     const password = user.UserPassword;
     const email = user.UserEmail;
-    console.log("created");
+    console.log("created "+username);
       return this.http.post('${this.apiURL}/register', {username, password, email}, this.httpOptions)
   }
 

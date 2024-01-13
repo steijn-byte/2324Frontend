@@ -11,7 +11,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   private tokenKey = 'jwtToken';
-  private apiUrl = 'https://localhost:51800/login';
+  private apiUrl = 'https://localhost:7194/login';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -20,13 +20,17 @@ export class AuthenticationService {
   };
 
   login(email: string, password: string) {
+    
+    
     return this.http.post<any>(`${this.apiUrl}`, email + password, this.httpOptions)
       .pipe(map((Response) => {
         // login successful if there's a jwt token in the response
         if (typeof Response === 'string') {
+          console.log("goed");
           this.setToken(Response);
         } else {
           console.error('Unexpected response type:', typeof Response);
+          console.log("fout bezig" +Response.error)
         }
 
         return Response;
@@ -36,6 +40,7 @@ export class AuthenticationService {
   }
 
   getToken(): any {
+    console.log("get token");
     return localStorage.getItem(this.tokenKey);
   }
 
