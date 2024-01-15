@@ -31,7 +31,7 @@ export class LoginComponent {
         (result: any) =>{
         if (result != null){
           this.toastr.success("U bent ingelogd");
-          this.router.navigate(['home']);
+          this.router.navigate(['']);
         }
       })
     }

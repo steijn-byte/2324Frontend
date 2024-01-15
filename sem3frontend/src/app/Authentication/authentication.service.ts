@@ -22,7 +22,7 @@ export class AuthenticationService {
   login(email: string, password: string) {
     
     
-    return this.http.post<any>(`${this.apiUrl}`, email + password, this.httpOptions)
+    return this.http.post<any>(this.apiUrl, JSON.stringify({email, password}), this.httpOptions)
       .pipe(map((Response) => {
         // login successful if there's a jwt token in the response
         if (typeof Response === 'string') {

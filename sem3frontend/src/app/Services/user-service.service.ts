@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Guid } from 'guid-typescript'
 import { User } from '../Models/user.model';
 import { HttpHandler } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +11,19 @@ import { HttpHandler } from '@angular/common/http';
 export class UserServiceService {
 //naming issue, cannot rename due to time
   constructor(private http: HttpClient) { }
-  private apiURL = 'fooderz.backend.azurewebsites.net'
+  private apiURL = 'https://localhost:7194'
 httpOptions ={
   headers: new HttpHeaders().set('Content-Type', 'application/json')
 }
 
 
-  createUser(user: User){
+  createUser(user: User) : Observable<User>{
     const username = user.Username;
     const password = user.UserPassword;
     const email = user.UserEmail;
-    console.log("created "+username);
-      return this.http.post('${this.apiURL}/register', {username, password, email}, this.httpOptions)
+    console.log(this.apiURL+'/Register');
+    console.log(username, password, email);
+      return this.http.post<User>(this.apiURL+'/Register', JSON.stringify({username, password, email}), this.httpOptions)
   }
 
 }
