@@ -11,9 +11,10 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   private tokenKey = 'jwtToken';
-  private apiUrl = 'https://localhost:7194/login';
+  private apiUrl = 'https://fooderz.azurewebsites.net/login';
   httpOptions = {
     headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': 'post',
       'Content-Type': 'application/json',
     }),
     responseType: 'text' as 'json',

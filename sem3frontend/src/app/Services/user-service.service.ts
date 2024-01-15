@@ -11,9 +11,12 @@ import { Observable } from 'rxjs';
 export class UserServiceService {
 //naming issue, cannot rename due to time
   constructor(private http: HttpClient) { }
-  private apiURL = 'https://localhost:7194'
+  private apiURL = 'https://fooderz.azurewebsites.net'
 httpOptions ={
-  headers: new HttpHeaders().set('Content-Type', 'application/json')
+  headers: new HttpHeaders({
+    'Access-Control-Allow-Origin': 'post',
+    'Content-Type': 'application/json',
+  }),
 }
 
 
