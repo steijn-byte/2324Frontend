@@ -13,7 +13,7 @@ import { User } from '../Models/user.model';
 })
 export class LoginComponent {
   isLoggedIn = false;
-  userEmail: string='';
+  Username: string='';
   userPassword: string='';
   submitted=false;
 
@@ -27,7 +27,7 @@ export class LoginComponent {
         this.toastr.error("Niet alle velden zijn ingevuld");
     }
     else {
-      this.authService.login(this.userEmail, this.userPassword).subscribe(
+      this.authService.login(this.Username, this.userPassword).subscribe(
         (result: any) =>{
         if (result != null){
           this.toastr.success("U bent ingelogd");
@@ -37,7 +37,7 @@ export class LoginComponent {
     }
   }
   isValid(): boolean{
-    if (this.userEmail.length >= 1 && this.userPassword.length >= 1){
+    if (this.Username.length >= 1 && this.userPassword.length >= 1){
       return true;
     }
     else {
