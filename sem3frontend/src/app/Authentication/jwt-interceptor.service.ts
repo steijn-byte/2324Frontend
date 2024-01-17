@@ -25,6 +25,7 @@ export class JwtInterceptorService implements HttpInterceptor {
     request = request.clone({
       setHeaders: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
         Accept: 'application/json',
         Authorization: `Bearer ${this.authService.getToken()}`
       }
