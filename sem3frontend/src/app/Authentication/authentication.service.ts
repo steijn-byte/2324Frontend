@@ -14,7 +14,10 @@ export class AuthenticationService {
   private apiUrl = 'https://fooderzbackend.azurewebsites.net';
   httpOptions = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': 'post',
+      'Access-Control-Allow-Origin': '*', // Replace with your actual client app URL
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Credentials': 'true',
       'Content-Type': 'application/json',
     }),
     responseType: 'text' as 'json',
@@ -23,7 +26,7 @@ export class AuthenticationService {
   login(email: string, password: string) {
     
     
-    return this.http.post<any>(this.apiUrl, JSON.stringify({email, password}), this.httpOptions)
+    return this.http.post<any>(this.apiUrl+'/Login', JSON.stringify({email, password}), this.httpOptions)
       .pipe(map((Response) => {
         // login successful if there's a jwt token in the response
         if (typeof Response === 'string') {
