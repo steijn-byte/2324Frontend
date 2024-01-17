@@ -30,7 +30,6 @@ export class AuthenticationService {
       .pipe(map((Response) => {
         // login successful if there's a jwt token in the response
         if (typeof Response === 'string') {
-          console.log("goed");
           this.setToken(Response);
         } else {
           console.error('Unexpected response type:', typeof Response);
@@ -44,7 +43,6 @@ export class AuthenticationService {
   }
 
   getToken(): any {
-    console.log("get token");
     return localStorage.getItem(this.tokenKey);
   }
 
