@@ -14,7 +14,10 @@ export class UserServiceService {
   private apiURL = 'https://fooderzbackend.azurewebsites.net'
 httpOptions ={
   headers: new HttpHeaders({
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'https://fooderz.azurewebsites.net', // Replace with your actual client app URL
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Access-Control-Allow-Credentials': 'true',
     'Content-Type': 'application/json',
   }),
 }
