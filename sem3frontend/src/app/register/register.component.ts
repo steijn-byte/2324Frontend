@@ -27,7 +27,7 @@ export class RegisterComponent {
     }
     else {
         let user: User = new User(this.username, this.password, this.email)
-        this.userService.createUser(user);
+        this.userService.createUser(user).subscribe();
         this.toastrService.success("Account aangemaakt");
         //this.router.navigate(['home']);
     }

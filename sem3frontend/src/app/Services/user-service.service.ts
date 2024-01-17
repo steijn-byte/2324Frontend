@@ -21,12 +21,8 @@ httpOptions ={
 
 
   createUser(user: User) : Observable<User>{
-    const username = user.Username;
-    const password = user.UserPassword;
-    const email = user.UserEmail;
-    console.log(this.apiURL+'/Register');
-    console.log(username, password, email);
-      return this.http.post<User>(this.apiURL+'/Register', JSON.stringify({username, password, email}), this.httpOptions)
+    console.log(JSON.stringify({user}));
+      return this.http.post<User>(this.apiURL+'/Register', JSON.stringify(user), this.httpOptions)
   }
 
 }
